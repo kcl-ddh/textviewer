@@ -111,3 +111,34 @@ TextPanel.prototype.onResize = function() {
 TextPanel.prototype.onVisibleContentChange = function() {
     
 }
+
+/**
+ * Returns the ID in the other displayed text that corresponds with
+ * the place in the displayed text indicated by text_id.
+ *
+ * TODO: This presumably requires (in some setups at least) an
+ * argument indicating which text text_id belongs to.
+ */
+TextPanel.prototype.matchIds = function(text_id) {
+
+}
+
+/**
+ * Returns the ID associated with label.
+ *
+ * This function allows for the user to enter a label and the viewer
+ * to jump to that point in the text.
+ */
+TextPanel.prototype.getIdFromLabel = function(label) {
+    return '';
+}
+
+/**
+ * Returns the label string associated with id.
+ *
+ * This functions allows for the label of the currently viewed section
+ * of a text (associated with id) to be displayed.
+ */
+TextPanel.prototype.getLabelFromId = function(id) {
+    return '';
+}
