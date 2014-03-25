@@ -1,0 +1,434 @@
+/* FACING TEXTS CSS */
+#text-viewer {
+    min-height: 600px;
+}
+
+/* VIEWER PANEL */
+
+.viewer-panel {
+	min-height:400px;
+}
+
+#viewer-left-panel {
+}
+
+#viewer-right-panel {
+}
+
+/* TOOLBAR */
+
+.highlight {
+    background-color: #EEEEEE;
+}
+
+#viewer-tool-bar ul {
+    margin-bottom: 0px;
+}
+
+#viewer-tool-bar .nvl {
+    padding:0 0 0 3px;
+    background:url(../../_a/i/nvs.png)repeat-x scroll 0 100% #E9E4E1;
+    overflow: hidden;
+}
+
+#viewer-tool-bar .nvl li {
+    float: left;
+    background: none;
+    padding: 0;
+}
+
+#viewer-tool-bar .nvl li.x1 {
+    padding-left: 0;
+}
+
+#viewer-tool-bar .nvl li a.t9 {
+    border: 0 none;
+    background:url(../../_a/i/sprites.png) no-repeat scroll 0 0 transparent;
+    text-indent: -5000px;
+    height: 32px;
+    width: 33px;
+    display:inline-block;
+}
+
+#viewer-tool-bar .nvl li.s1 a.m1:hover, #viewer-tool-bar .nvl li a.m1 {
+    background-position: -37px 4px;
+}
+
+#viewer-tool-bar .nvl li a.m1:hover, #viewer-tool-bar .nvl li.s1 a.m1 {
+    background-position:-37px -34px;
+}
+
+#viewer-tool-bar .nvl li.s1 a.m2:hover, #viewer-tool-bar .nvl li a.m2 {
+    background-position: -72px 4px;
+}
+
+#viewer-tool-bar .nvl li a.m2:hover, #viewer-tool-bar .nvl li.s1 a.m2  {
+    background-position: -72px -34px;
+}
+
+#viewer-tool-bar .nvl li.s1 a.m3:hover, #viewer-tool-bar .nvl li a.m3 {
+    background-position: 0 4px;
+}
+#viewer-tool-bar .nvl li a.m3:hover,#viewer-tool-bar .nvl li.s1 a.m3  {
+    background-position: 0 -34px;
+}
+#viewer-tool-bar .nvl li.s1 a.m4:hover, #viewer-tool-bar .nvl li a.m4 {
+    background-position: -104px 4px;
+}
+#viewer-tool-bar .nvl li a.m4:hover, #viewer-tool-bar .nvl li.s1 a.m4 {
+    background-position: -104px -34px;
+}
+
+#viewer-tool-bar .nvl li.perm {
+    border: 0 none;
+    float:right;
+}
+
+#text-viewer .expand:hover, #text-viewer .expand.expanded {
+    background: url(../img/expand-hov.png) no-repeat scroll 0 0 transparent;
+}
+#text-viewer .expand, #text-viewer .expand.expanded:hover {
+    display: inline-block;
+    width: 22px;
+    margin: 0 115px 0 0;
+    text-indent: -5000px;
+    cursor: pointer;
+    background: url(../img/expand.png) no-repeat scroll 0 0;
+}
+
+#text-viewer .facsimiles .facsimile {
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 15px 0 0 0;
+    margin: 15px 0 0 0;
+    background-color: #F8F8F8;
+}
+
+#text-viewer .facsimiles .facsimile a {text-decoration: none;
+    border: 0 none;
+}
+
+#text-viewer #viewer-tool-bar {
+    margin: 0 0 0px 0;
+}
+
+#text-viewer .viewer-text-box {
+    border: 1px solid #ddd;
+    overflow: auto;
+    padding: 0 28px 0 38px;
+    font-family: "JunicodeRegular","Arial Unicode MS", "Arial", serif;
+    font-size: 10.5pt;
+    line-height: 2.4em;
+    min-height: 400px;
+}
+
+#text-viewer .viewer-text-box p, #text-viewer .viewer-text-box div {
+	margin-bottom:0;
+}
+
+#text-viewer .stageDirBetweenSpeechGroups {
+    margin-bottom: 7px !important;
+}
+
+
+div.lazy-image {
+    background: #fff;
+    border: 1px solid #333;
+}
+
+div.lazy-image span {
+    display: none;
+}
+
+.nav-chapter {
+    width: 10em;
+}
+
+.nav-page {
+    width: 3em;
+}
+
+/* CONTENT */
+
+#text-viewer .panel-tool-bar {
+    background: #F0F0F0;
+    padding: 3px;
+}
+
+#permalink {
+
+}
+
+#permalink a {
+    display:inline;
+}
+
+#permalink input {
+    display:none;
+    width: 25em;
+}
+
+#permalink.expanded a {
+    display:none;
+}
+
+#permalink.expanded input {
+    display:inline;
+}
+
+.tei-del {
+    text-decoration: line-through;
+}
+
+.tei-head {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.cch-rub {
+    font-weight: bold;
+}
+
+.tei-add {
+}
+
+.invalid-input {
+    background-color: pink;
+}
+
+#image-viewer-iframe {
+    border: 1px solid #89400A;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+    width: 650px;
+}
+
+.hidden {
+    display: none;
+}
+
+#tooltip {
+    display: none;
+    max-width: 400px;
+    max-height: 400px;
+    overflow: auto;
+    background: #E9E4E1;
+    border: 2px solid #833D08;
+    padding: 3px;
+    position: absolute;
+}
+
+.anchor-label-uc {
+    border: 0 none;
+    background:url(../img/uc-bubble-shadow.png) no-repeat scroll 0 0 transparent;
+    text-indent: -10000px;
+    height: 1.8em;
+    width: 16px;
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.anchor-label-uc.exists {
+    background:url(../img/uc-bubble.png) no-repeat scroll 0 0 transparent;
+}
+
+.anchor-label-co {
+    border: 0 none;
+    background:url(../img/bubble.jpg) no-repeat scroll 0 0 transparent;
+    text-indent: -10000px;
+    height: 1.8em;
+    width: 16px;
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.anchor-label-ca {
+    vertical-align: super;
+    font-size: smaller;
+    padding: 0 3px;
+}
+
+.ca-em {
+    font-style: italic;
+}
+
+.facsimile {
+    border: 1px solid lightgrey;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+/* hide the [PB] in the texts */
+.anchor-label-p {
+    display: none;
+}
+
+/* Show the page number in the list of facsimiles */
+.facsimiles .anchor-label-p {
+    display: block;
+}
+
+div.tei-div {
+    margin-bottom: 2em;
+}
+
+/* User comments */
+
+div#user-comments-box {
+    font-size: 85%;
+    border: 1px solid black;
+    background-color: #E9E4E1;
+    width: 400px;
+    padding: 0px;
+    position: absolute;
+    display: none;
+}
+
+#user-comments-box h3 {
+    background: none no-repeat scroll 0 0 #88400A;
+    margin: 0px;
+    margin-bottom: 2px;
+    padding: 1px 1px 1px 5px;
+    color: white;
+}
+
+#user-comments-box  div.user-comments-body {
+    padding: 5px;
+    background: none no-repeat scroll 0 0 #E9E4E1;
+    margin: 0px;
+}
+
+#user-comments-field-comment {
+    width: 95%;
+    height: 80%;
+}
+
+#user-comments-box ul.user-comments-box-tabs {
+    background: none no-repeat scroll 0 0 #E9E4E1;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+
+.user-comments-box-tabs li {
+    display: inline;
+    border-top: 1px solid grey;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-bottom: 0px solid grey;
+    background: none no-repeat scroll 0 0 #88400A;
+    color: white;
+    margin: 0px;
+    padding: 1px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+li.tab-selected {
+    color: #833D08;
+    background: none no-repeat scroll 0 0 white;
+}
+
+#user-comments-box .panel {
+    border: 1px solid grey;
+    background: none no-repeat scroll 0 0 white;
+    overflow: auto;
+    height: 150px;
+    position: relative;
+    padding: 5px;
+}
+
+.user-comments-box-footer {
+    padding: 5px;
+    margin: 0px;
+}
+
+.user-comments-box-footer input {
+    float: right;
+}
+
+.comment-body {
+    margin-left: 10px;
+}
+
+.comment-user {
+    font-weight: bolder;
+}
+
+.anchor-label-uc {
+    cursor: pointer;
+}
+
+#spinner-uc {
+    display: none;
+}
+
+#ajax-message-uc {
+    display: none;
+    color: green;
+    font-size: smaller;
+}
+
+#ajax-message-uc.error {
+    color: red;
+}
+
+#user-comments-box-my .comment {
+    display: none;
+}
+
+#user-comments-box-my .comment.current-user {
+    display: block;
+}
+
+.private-label {
+    background:url("../img/comment-private.gif") no-repeat scroll center center transparent;
+    display: inline-block;
+    height: 16px;
+    text-indent: -5000px;
+    width: 16px;
+}
+
+#user-comments-box a.int:link, #user-comments-box a.int:visited, #user-comments-box a.int:active {
+    color: rgb(136, 136, 136);
+    text-decoration: underline;
+}
+
+.cb-close {
+    background: url("../img/uc-close.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 2px 0 0;
+    text-indent: -5000px;
+    width: 16px;
+    height: 16px;
+    float: right;
+}
+
+.cb-resize {
+    background: url("../img/uc-max.png") no-repeat scroll 0 0 transparent;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 2px 0 0;
+    text-indent: -5000px;
+    width: 16px;
+    height: 16px;
+    float: right;
+}
+
+.cb-resize.maximized {
+    background: url("../img/uc-min.png") no-repeat scroll 0 0 transparent;
+}
+
+#user-comments-box-form {
+    height: 80%;
+}
+
+#user-comments-box-form form, #user-comments-box-form form p {
+    height: 100%;
+}
