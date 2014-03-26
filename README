@@ -1,16 +1,4 @@
 A Javascript side-by-side viewer for texts. Adapted from
 http://www.assembla.com/spaces/jdualtextviewer/, by Geoffroy Noel.
 
-The viewer takes two texts in a set of related texts and displays them
-side by side. If there are more than two texts in the set, there is UI
-for each text to be changed to another.
-
-The viewer can provide synchronisation between the two texts, so that
-as one text is scrolled through, the other keeps pace. This requires
-the "matchIds" function to be modified to provide the id in the other
-text that corresponds with the id in the scrolled text.
-
-Jump functionality is also possible, whereby the user enters a label
-for one of the texts and the viewing pane jumps to that point in the
-text. This requires that the functions "getIdFromLabel" and
-"getLabelFromId" be implemented.
+See the example files for how to use.

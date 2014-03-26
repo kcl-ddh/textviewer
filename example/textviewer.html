@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="textviewer/css/textviewer.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="textviewer/js/textviewer.js"></script>
+    <script src="textviewer-init.js"></script>
+  </head>
+  <body>
+    <div id="text-viewer">
+      <div id="viewer-tool-bar">
+        <head>View options</head>
+
+        <ul>
+          <li>
+            <a class="ctrl" href="#" id="sync">
+              <i class="icon-refresh"></i>
+              Synchronise texts
+            </a>
+          </li>
+          <li class="active">
+            <a class="ctrl" href="#" id="collation">
+              <i class="icon-tags"></i>
+              Collation notes
+            </a>
+          </li>
+          <li class="active">
+            <a class="ctrl" href="#" id="commentary">
+              <i class="icon-comments"></i>
+              Commentary
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="viewer-panel" id="viewer-left-panel">
+        <div class="panel-tool-bar">
+          <label>Text</label>
+          <select class="textSelection">
+          </select>
+        </div>
+        <div class="viewer-text-box" id="viewer-left-box">
+        </div>
+      </div>
+      <div class="viewer-panel" id="viewer-right-panel">
+        <div class="panel-tool-bar">
+          <label>Text</label>
+          <select class="textSelection">
+          </select>
+        </div>
+        <div class="viewer-text-box" ide="viewer-right-box">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
