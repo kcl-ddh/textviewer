@@ -180,6 +180,10 @@ TextPanel.prototype.getLocationId = function() {
     return this.locationId;
 };
 
+/**
+ * Loads the text at textUrl into this panel.
+ * @param textUrl URL fragment referencing the text to load
+ */
 TextPanel.prototype.loadSection = function(textUrl) {
     this.box.html('<div class="spinner"> </div>');
 
@@ -261,7 +265,8 @@ TextPanel.prototype.scrollBoxToElement = function(element) {
 };
 
 TextPanel.prototype.setLocationId = function(locationId) {
-    return this.scrollBoxToElement(this.box.find('*[data-text-id=' + locationId + ']').first());
+    var element = this.box.find('*[data-text-id=' + locationId + ']').first();
+    return this.scrollBoxToElement(element);
 };
 
 TextPanel.prototype.syncToLocationId = function(locationId) {
