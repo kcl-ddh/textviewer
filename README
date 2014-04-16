@@ -1,4 +1,8 @@
 A Javascript side-by-side viewer for texts. Adapted from
 http://www.assembla.com/spaces/jdualtextviewer/, by Geoffroy Noel.
 
-See the example files for how to use.
+The texts to be compared are fetched via AJAX calls; they are expected
+to be HTML containing two elements with the ids "text-toc" and
+"text-content".
+
+See the example files for how the viewer might be used.
