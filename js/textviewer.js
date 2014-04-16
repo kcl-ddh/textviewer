@@ -23,25 +23,26 @@ function TextViewer(lowerBoundary) {
  * @param box Element to display the text.
  * @param syncSelector Name of the element used to sync the different panels.
  */
-TextViewer.prototype.addPanel = function(contentUrl, textSelect, box, syncSelector) {
+TextViewer.prototype.addPanel = function(contentUrl, textSelect, box,
+                                         syncSelector) {
     this.panels.push(new TextPanel(this, this.panels.length, contentUrl,
                                    textSelect, box, syncSelector));
-}
+};
 
 /**
  * Returns the TextViewer maximum height.
  */
 TextViewer.prototype.getMaxHeight = function() {
     return this.maxHeight;
-}
+};
 
 TextViewer.prototype.getSwitch = function(name) {
     return this.switches[name];
-}
+};
 
 TextViewer.prototype.setSwitch = function(name, value) {
     this.switches[name] = value;
-}
+};
 
 /**
  * Handle resize events.
@@ -50,7 +51,7 @@ TextViewer.prototype.onResize = function() {
     for (panel in this.panels) {
         this.panels[panel].onResize();
     }
-}
+};
 
 TextViewer.prototype.synchronisePanels = function(referencePanel) {
     if (!this.getSwitch('sync')) {
@@ -67,7 +68,7 @@ TextViewer.prototype.synchronisePanels = function(referencePanel) {
             panel.syncToLocationId(this.locationId);
         }
     }
-}
+};
 
 TextViewer.prototype.highlight = function(locationId, active, bothPanes) {
     if (!this.getSwitch('highlight')) {
@@ -91,7 +92,7 @@ TextViewer.prototype.highlight = function(locationId, active, bothPanes) {
             }
         });
     }
-}
+};
 
 /**
  * Updates the location.
@@ -105,7 +106,7 @@ TextViewer.prototype.updateLocation = function() {
         hash += this.panels[panel].getLocation();
     }
     location.hash = hash;
-}
+};
 
 
 /**
@@ -137,7 +138,7 @@ TextPanel.prototype.bindOnScroll = function(bind) {
     if (this.onScroll == null) {
         this.onScroll = function(event) {
             self.onVisibleContentChange($(event.target));
-        }
+        };
     }
 
     if (bind) {
@@ -145,7 +146,7 @@ TextPanel.prototype.bindOnScroll = function(bind) {
     } else {
         this.box.unbind('scroll', this.onScroll);
     }
-}
+};
 
 TextPanel.prototype.getFirstVisibleElement = function(selector, windowHeight) {
         // get_first_visible_element($('.viewer-text-box'), 'p')
@@ -163,21 +164,43 @@ TextPanel.prototype.getFirstVisibleElement = function(selector, windowHeight) {
             return (top < windowTop);
         });
         return ret;
-    }
+};
 
 /**
  * Returns the panel location.
  */
 TextPanel.prototype.getLocation = function() {
     return this.textSelect.val();
-}
+};
 
 /**
  * Returns the ID of the current place in the text.
  */
 TextPanel.prototype.getLocationId = function() {
     return this.locationId;
-}
+};
+
+TextPanel.prototype.loadSection = function(textUrl) {
+    this.box.html('<div class="spinner"> </div>');
+
+    $.ajax({
+        url: self.contentUrl + textUrl + '/',
+        async: false,
+        dataType: 'html',
+        type: 'GET',
+        success: function(data, textStatus, xhr) {
+            data = data.trim();
+            var toc = $(data).filter('#text-toc');
+            var content = $(data).filter('#text-content');
+            var toolBar = self.box.parent().find('.panel-tool-bar');
+            toolBar.find('#text-toc').remove();
+            toolBar.append(toc);
+            self.box.html(content);
+        }
+    });
+
+    this.viewer.updateLocation();
+};
 
 /**
  * Handle resize events.
@@ -195,38 +218,21 @@ TextPanel.prototype.onResize = function() {
 
     this.box.css('height', height);
     this.onVisibleContentChange();
-}
+};
 
 /**
  * Handle type changes, loads new content into the panel according to the type.
  */
 TextPanel.prototype.onTextSelectChange = function() {
     var self = this;
-
-    if (this.textSelect.val() && this.textSelect.val().length > 0) {
-        this.box.html('<div class="spinner"> </div>');
-
-        $.ajax({
-            url: self.contentUrl + self.textSelect.val() + '/',
-            async: false,
-            type: 'GET',
-            success: function(data, textStatus, xhr) {
-                data = data.trim();
-                var toc = $(data).filter('#text-toc');
-                var content = $(data).filter('#text-content');
-
-                self.box.parent().find('.panel-tool-bar').find('#text-toc').remove();
-                self.box.parent().find('.panel-tool-bar').append(toc);
-                self.box.html(content);
-            }
-        });
-
-        this.viewer.updateLocation();
+    var textUrl = this.getLocation();
+    if (textUrl && textUrl.length > 0) {
+        this.loadSection(textUrl);
     } else {
         this.box.html('');
         this.viewer.updateLocation();
     }
-}
+};
 
 /**
  * Handle changes to the box content.
@@ -238,7 +244,7 @@ TextPanel.prototype.onVisibleContentChange = function() {
         this.viewer.synchronisePanels(this);
     }
     this.beingSynced = false;
-}
+};
 
 TextPanel.prototype.scrollBoxToElement = function(element) {
     var ret = false;
@@ -252,13 +258,13 @@ TextPanel.prototype.scrollBoxToElement = function(element) {
         ret = true;
     }
     return ret;
-}
+};
 
 TextPanel.prototype.setLocationId = function(locationId) {
     return this.scrollBoxToElement(this.box.find('*[data-text-id=' + locationId + ']').first());
-}
+};
 
 TextPanel.prototype.syncToLocationId = function(locationId) {
     this.beingSynced = true;
     return this.setLocationId(locationId);
-}
+};

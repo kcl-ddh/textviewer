@@ -32,10 +32,8 @@ $(document).ready(function() {
     // Initialises the textviewer
     viewer = new TextViewer('footer');
     $('.viewer-panel').each(function() {
-        viewer.addPanel(baseURL,
-                        $(this).find('.textSelection'),
-                        $(this).find('.viewer-text-box'),
-                        '');
+        viewer.addPanel(baseURL, $(this).find('.textSelection'),
+                        $(this).find('.viewer-text-box'), '');
     });
     viewer.setSwitch('commentary', true);
     viewer.setSwitch('collation', true);
@@ -44,7 +42,7 @@ $(document).ready(function() {
     // Loads content passed in the URL
     for (var idx = 0; idx < sections.length; idx++) {
         if (sections[idx]) {
-            loadSection(viewer.panels[idx], sections[idx]);
+            viewer.panels[idx].loadSection(sections[idx]);
         }
     }
 
@@ -56,10 +54,12 @@ $(document).ready(function() {
         var expanded = button.hasClass('expanded');
         var panel = button.parents('.viewer-panel');
         if (expanded) {
-            $(this).find('span').removeClass('icon-resize-full').addClass('icon-resize-small');
+            $(this).find('span').removeClass('icon-resize-full').addClass(
+                'icon-resize-small');
             panel.css('width', '100%');
         } else {
-            $(this).find('span').removeClass('icon-resize-small').addClass('icon-resize-full');
+            $(this).find('span').removeClass('icon-resize-small').addClass(
+                'icon-resize-full');
             panel.css('width', '50%');
         }
 
@@ -89,26 +89,6 @@ $(document).ready(function() {
     });
 
 });
-
-function loadSection(panel, section) {
-    panel.box.html('<div class="spinner"> </div>');
-
-    $.ajax({
-        url: panel.contentUrl + section + '/',
-        async: false,
-        type: 'GET',
-        dataType: 'html',
-        success: function(data, textStatus, xhr) {
-            data = data.trim();
-            var toc = $(data).filter('#text-toc');
-            var content = $(data).filter('#text-content');
-
-            panel.box.parent().find('.panel-tool-bar').find('#text-toc').remove();
-            panel.box.parent().find('.panel-tool-bar').append(toc);
-            panel.box.html(content);
-        }
-    });
-}
 
 $(document).ajaxStart(function() {
     $('.toc-dropdown .ctrl.more').unbind('click');
@@ -159,13 +139,13 @@ function handleInnerNoteLink() {
             $(itemid).addClass('showme');
 
             // Hides the element if it is shown.
-        } else if (itemid == "#" + $('.showme').attr('id')) {
+        } else if (itemid == '#' + $('.showme').attr('id')) {
             $('.showme').slideUp();
             $(itemid).removeClass('showme');
 
             // Switches out the current element for the next one sequentially
         } else {
-            $('.showme').slideUp(function () {
+            $('.showme').slideUp(function() {
                 $(this).removeClass('showme');
                 if ($('.inner-note:animated').length === 0) {
                     $(itemid).slideDown();
@@ -187,7 +167,7 @@ function handleSectionLink() {
         panel = viewer.panels[1];
     }
 
-    loadSection(panel, section);
+    panel.loadSection(section);
 
     if (rel.length > 1) {
         panel.scrollBoxToElement($('#' + rel[1]));
